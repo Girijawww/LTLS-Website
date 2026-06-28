@@ -102,6 +102,47 @@ window.location=
 
 });
 
+app.post("/login",(req,res)=>{
+
+const user =
+req.body.username;
+
+const pass =
+req.body.password;
+
+if(
+user==="admin"
+&&
+pass==="1234"
+){
+
+res.redirect(
+"/messages"
+);
+
+}
+
+else{
+
+res.send(`
+
+<script>
+
+alert(
+"Invalid Login"
+);
+
+window.location=
+"/login.html";
+
+</script>
+
+`);
+
+}
+
+});
+
 app.listen(3000,()=>{
 
 console.log(
